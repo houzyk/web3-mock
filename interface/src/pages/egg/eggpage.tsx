@@ -4,22 +4,22 @@ import styled from "styled-components";
 // Models
 import { PagesModel } from "../../helpers/models";
 
-export const HomePageInfo: PagesModel = {
+export const EggPageInfo: PagesModel = {
   hasFooter: true,
   hasNavBar: true,
-  path: "/",
-  className: "homepage"
+  path: "*",
+  className: "eggpage"
 }
 
-export interface HomePagePropsInterface {
+export interface EggPagePropsInterface {
   
 }
 
-const HomePage: React.FunctionComponent<HomePagePropsInterface> = ({
+const EggPage: React.FunctionComponent<EggPagePropsInterface> = ({
   
 }) => {
   return (
-    <Style className={HomePageInfo.className}>
+    <Style className={EggPageInfo.className}>
     </Style>
   );
 }
@@ -28,4 +28,4 @@ const Style = styled.main<{className: string;}>`
 
 `
 
-export default HomePage;
+export default EggPage;
