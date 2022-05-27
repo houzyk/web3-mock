@@ -5,6 +5,7 @@ export interface PagesModel {
   hasFooter?: boolean;
   path: string;
   className: string;
+  navLabel?: string;
 }
 
 export interface RoutesModel extends PagesModel {

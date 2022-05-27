@@ -19,9 +19,33 @@ import { EggPage, EggPageInfo } from "./pages";
 
 // Components
 import { 
-  Footer, 
-  NavBar 
+  Footer,
+  FooterPropsInterface, 
+  NavBar,
+  NavBarPropsInterface
 } from "./components"; 
+
+const NavBarProps: NavBarPropsInterface = {
+  navigations: [
+    {
+      label: HomePageInfo.navLabel || '',
+      path: HomePageInfo.path,
+      isinternal: true
+    },
+    {
+      label: 'About',
+      path: "https://houzairkoussa.herokuapp.com"
+    },
+    {
+      label: 'Connect Wallet',
+      path: ""
+    }
+  ]
+}
+
+const FooterProps: FooterPropsInterface = {
+  
+}
 
 const routes: Array<RoutesModel> = [
   {
@@ -49,9 +73,9 @@ if (root) {
                   path={route.path} 
                   element={(
                             <>
-                              {route?.hasNavBar && <NavBar styleOveride={route.className}/>}
+                              {route?.hasNavBar && <NavBar styleOveride={route.className} {...NavBarProps} />}
                                 {route.element}
-                              {route?.hasFooter && <Footer styleOveride={route.className}/>}
+                              {route?.hasFooter && <Footer styleOveride={route.className} {...FooterProps}/>}
                             </>
                           )} 
                   key={index}

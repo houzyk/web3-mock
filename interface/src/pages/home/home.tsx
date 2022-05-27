@@ -8,7 +8,8 @@ export const HomePageInfo: PagesModel = {
   hasFooter: true,
   hasNavBar: true,
   path: "/",
-  className: "homepage"
+  className: "homepage",
+  navLabel: "Home"
 }
 
 export interface HomePagePropsInterface {
