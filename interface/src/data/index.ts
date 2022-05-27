@@ -1,0 +1,2 @@
+export { NavBarProps } from './navbar/navbardata';
+export { FooterProps } from './footer/footerdata';

@@ -10,6 +10,7 @@ import { NavLink } from "react-router-dom";
 
 export interface NavBarPropsInterface {
   styleOveride?: string;
+  title: string;
   navigations: {
     label: string;
     path?: string;
@@ -21,7 +22,8 @@ export interface NavBarPropsInterface {
 
 const Navbar: React.FunctionComponent<NavBarPropsInterface> = ({
   styleOveride,
-  navigations
+  navigations,
+  title
 }) => {
 
   const LinkWrapper = React.memo<{path: string; label: string; isinternal: boolean;}>(({
@@ -41,9 +43,10 @@ const Navbar: React.FunctionComponent<NavBarPropsInterface> = ({
 
   return (
     <Style className={["nav-bar", styleOveride || ''].join(" ")}>
+      <p className="nav-bar-title">{title || ''}</p>
       <ul className="nav-bar-list">
-        {!!navigations && navigations.map((navigation, index) => (
-          <li className={["nav-bar-list__link", navigation?.className || ''].join(" ")} key={index}>   
+        { !!navigations && navigations.map((navigation, index) => (
+          <li className={["nav-bar-list__link", navigation?.className || ''].join(" ")} key={index} tabIndex={index + 1}>   
             { navigation?.isCTA ?
               <button className='nav-bar-list__cta'>
                 {navigation?.label || ''}
@@ -63,8 +66,11 @@ const Navbar: React.FunctionComponent<NavBarPropsInterface> = ({
 }
 
 const Style = styled.nav<{className: string;}>`
-  &.nav-bar {
+  width: 100vw;
+  text-align: center;
 
+  .nav-bar-list {
+    display: none;
   }
 `
 

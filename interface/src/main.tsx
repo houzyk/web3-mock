@@ -20,33 +20,12 @@ import { EggPage, EggPageInfo } from "./pages";
 // Components
 import { 
   Footer,
-  FooterPropsInterface, 
-  NavBar,
-  NavBarPropsInterface
+  NavBar
 } from "./components"; 
 
-const NavBarProps: NavBarPropsInterface = {
-  navigations: [
-    {
-      label: HomePageInfo.navLabel || '',
-      path: HomePageInfo.path,
-      isinternal: true
-    },
-    {
-      label: 'About',
-      path: "https://houzairkoussa.herokuapp.com"
-    },
-    {
-      label: 'Connect Wallet',
-      path: "",
-      isCTA: true
-    }
-  ]
-}
+// Data
+import { NavBarProps, FooterProps } from "./data";
 
-const FooterProps: FooterPropsInterface = {
-  
-}
 
 const routes: Array<RoutesModel> = [
   {
