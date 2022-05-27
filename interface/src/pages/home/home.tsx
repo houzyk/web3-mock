@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 // Models
-import { PagesModel } from "../../helpers/models";
+import { PagesModel } from "../../services/models";
 
 export const HomePageInfo: PagesModel = {
   hasFooter: true,

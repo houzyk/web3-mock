@@ -9,14 +9,6 @@ import {
 // Global Styles
 import './global.scss';
 
-//  Models
-import { RoutesModel } from "./helpers/models";
-
-// Pages
-import { ErrorPage404, ErrorPage404Info } from './pages';
-import { HomePage, HomePageInfo } from './pages';
-import { EggPage, EggPageInfo } from "./pages";
-
 // Components
 import { 
   Footer,
@@ -24,23 +16,7 @@ import {
 } from "./components"; 
 
 // Data
-import { NavBarProps, FooterProps } from "./data";
-
-
-const routes: Array<RoutesModel> = [
-  {
-    ...ErrorPage404Info,
-    element: <ErrorPage404/>,
-  },
-  {
-    ...HomePageInfo,
-    element: <HomePage/>,
-  },
-  {
-    ...EggPageInfo,
-    element: <EggPage/>,
-  }
-];
+import { NavBarProps, FooterProps, RoutesData } from "./data";
 
 const root = document.getElementById('root');
 if (root) {
@@ -48,7 +24,7 @@ if (root) {
     <React.StrictMode>
         <BrowserRouter>
           <Routes>
-            { routes.map((route, index) => (
+            { RoutesData.map((route, index) => (
                 <Route 
                   path={route.path} 
                   element={(
