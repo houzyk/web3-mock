@@ -18,12 +18,14 @@ export interface NavBarPropsInterface {
     isinternal?: boolean;
     isCTA?: boolean;
   }[];
+  hamburger?: any;
 }
 
 const Navbar: React.FunctionComponent<NavBarPropsInterface> = ({
   styleOveride,
   navigations,
-  title
+  title,
+  hamburger
 }) => {
 
   const LinkWrapper = React.memo<{path: string; label: string; isinternal: boolean;}>(({
@@ -43,35 +45,35 @@ const Navbar: React.FunctionComponent<NavBarPropsInterface> = ({
 
   return (
     <Style className={["nav-bar", styleOveride || ''].join(" ")}>
-      <p className="nav-bar-title">{title || ''}</p>
-      <ul className="nav-bar-list">
-        { !!navigations && navigations.map((navigation, index) => (
-          <li className={["nav-bar-list__link", navigation?.className || ''].join(" ")} key={index} tabIndex={index + 1}>   
-            { navigation?.isCTA ?
-              <button className='nav-bar-list__cta'>
-                {navigation?.label || ''}
-              </button>
-              :
-              <LinkWrapper 
-                path={navigation?.path || ''} 
-                label={navigation?.label || ''} 
-                isinternal={navigation.isinternal || false}
-              />     
-            }
-          </li>
-        ))}
-      </ul>
+      <div className="nav-bar-content">
+        <p className="nav-bar-title">{title || ''}</p>
+        <ul className="nav-bar-list">
+          { !!navigations && navigations.map((navigation, index) => (
+            <li className={["nav-bar-list__link", navigation?.className || ''].join(" ")} key={index} tabIndex={index + 1}>   
+              { navigation?.isCTA ?
+                <button className='nav-bar-list__cta'>
+                  {navigation?.label || ''}
+                </button>
+                :
+                <LinkWrapper 
+                  path={navigation?.path || ''} 
+                  label={navigation?.label || ''} 
+                  isinternal={navigation.isinternal || false}
+                />     
+              }
+            </li>
+          ))}
+        </ul>
+        <div>
+          {hamburger || null}
+        </div>
+      </div>
     </Style>
   );
 }
 
 const Style = styled.nav<{className: string;}>`
-  width: 100vw;
-  text-align: center;
 
-  .nav-bar-list {
-    display: none;
-  }
 `
 
 export default Navbar;
