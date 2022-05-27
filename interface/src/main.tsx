@@ -9,31 +9,30 @@ import {
 // Global Styles
 import './global.scss';
 
+//  Models
+import { RoutesModel } from "./helpers/models";
+
 // Pages
-import HomePage from './pages/home/home';
-import _404 from './pages/errors/_404';
+import ErrorPage404, { ErrorPage404Info } from './pages/errors/errorpage404';
+import HomePage, { HomePageInfo } from './pages/home/home';
+import EggPage, { EggPageInfo } from "./pages/egg/eggpage";
 
 // Components
 import Footer from "./components/footer/footer"; 
 import NavBar from "./components/header/navbar"; 
 
-const routes: Array<{
-  hasNavBar: boolean;
-  hasFooter: boolean;
-  path: string;
-  element: ReactNode;
-}> = [
+const routes: Array<RoutesModel> = [
   {
-    hasNavBar: true,
-    hasFooter: true,
-    path: "/",
-    element: <HomePage/>
+    ...ErrorPage404Info,
+    element: <ErrorPage404/>,
   },
   {
-    hasNavBar: false,
-    hasFooter: false,
-    path: "*",
-    element: <_404/>
+    ...HomePageInfo,
+    element: <HomePage/>,
+  },
+  {
+    ...EggPageInfo,
+    element: <EggPage/>,
   }
 ];
 
@@ -48,9 +47,9 @@ if (root) {
                   path={route.path} 
                   element={(
                             <>
-                              {route.hasNavBar && <NavBar/>}
+                              {route?.hasNavBar && <NavBar styleOveride=''/>}
                                 {route.element}
-                              {route.hasFooter && <Footer/>}
+                              {route?.hasFooter && <Footer styleOveride=''/>}
                             </>
                           )} 
                   key={index}
