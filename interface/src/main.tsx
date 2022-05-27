@@ -13,13 +13,15 @@ import './global.scss';
 import { RoutesModel } from "./helpers/models";
 
 // Pages
-import ErrorPage404, { ErrorPage404Info } from './pages/errors/errorpage404';
-import HomePage, { HomePageInfo } from './pages/home/home';
-import EggPage, { EggPageInfo } from "./pages/egg/eggpage";
+import { ErrorPage404, ErrorPage404Info } from './pages';
+import { HomePage, HomePageInfo } from './pages';
+import { EggPage, EggPageInfo } from "./pages";
 
 // Components
-import Footer from "./components/footer/footer"; 
-import NavBar from "./components/navbar/navbar"; 
+import { 
+  Footer, 
+  NavBar 
+} from "./components"; 
 
 const routes: Array<RoutesModel> = [
   {

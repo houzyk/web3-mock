@@ -18,7 +18,7 @@ const ErrorPage404: React.FunctionComponent<ErrorPage404PropsInterface> = ({
 }) => {
   return (
     <Style className={ErrorPage404Info.className}>
-      HELLO
+      
     </Style>
   );
 }

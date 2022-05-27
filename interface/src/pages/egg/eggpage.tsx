@@ -7,7 +7,7 @@ import { PagesModel } from "../../helpers/models";
 export const EggPageInfo: PagesModel = {
   hasFooter: true,
   hasNavBar: true,
-  path: "*",
+  path: "/egg",
   className: "eggpage"
 }
 
@@ -20,6 +20,7 @@ const EggPage: React.FunctionComponent<EggPagePropsInterface> = ({
 }) => {
   return (
     <Style className={EggPageInfo.className}>
+      
     </Style>
   );
 }
