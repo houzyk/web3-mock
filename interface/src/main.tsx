@@ -47,9 +47,9 @@ if (root) {
                   path={route.path} 
                   element={(
                             <>
-                              {route?.hasNavBar && <NavBar styleOveride=''/>}
+                              {route?.hasNavBar && <NavBar styleOveride={route.className}/>}
                                 {route.element}
-                              {route?.hasFooter && <Footer styleOveride=''/>}
+                              {route?.hasFooter && <Footer styleOveride={route.className}/>}
                             </>
                           )} 
                   key={index}
