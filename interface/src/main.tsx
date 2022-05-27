@@ -19,7 +19,7 @@ import EggPage, { EggPageInfo } from "./pages/egg/eggpage";
 
 // Components
 import Footer from "./components/footer/footer"; 
-import NavBar from "./components/header/navbar"; 
+import NavBar from "./components/navbar/navbar"; 
 
 const routes: Array<RoutesModel> = [
   {
