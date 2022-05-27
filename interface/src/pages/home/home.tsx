@@ -1,10 +1,23 @@
 import React from "react";
+import styled from "styled-components";
 
-const HomePage = () => {
+export interface HomePagePropsInterface {
+
+}
+
+const HomePage: React.FunctionComponent<HomePagePropsInterface> = ({
+  
+}) => {
   return (
-    <main>
-    </main>
+    <Style className="homepage">
+    </Style>
   );
 }
+
+const Style = styled.main<{className: string;}>`
+  &.homepage {
+    
+  }
+`
 
 export default HomePage;

@@ -6,10 +6,12 @@ import {
   Route,
 } from "react-router-dom";
 
+// Global Styles
 import './global.scss';
 
 // Pages
 import HomePage from './pages/home/home';
+import _404 from './pages/errors/_404';
 
 // Components
 import Footer from "./components/footer/footer"; 
@@ -26,6 +28,12 @@ const routes: Array<{
     hasFooter: true,
     path: "/",
     element: <HomePage/>
+  },
+  {
+    hasNavBar: false,
+    hasFooter: false,
+    path: "*",
+    element: <_404/>
   }
 ];
 
@@ -52,5 +60,5 @@ if (root) {
           </Routes>
         </BrowserRouter>
     </React.StrictMode>
-  )
+  );
 }
