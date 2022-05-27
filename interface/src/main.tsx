@@ -38,7 +38,8 @@ const NavBarProps: NavBarPropsInterface = {
     },
     {
       label: 'Connect Wallet',
-      path: ""
+      path: "",
+      isCTA: true
     }
   ]
 }

@@ -12,9 +12,10 @@ export interface NavBarPropsInterface {
   styleOveride?: string;
   navigations: {
     label: string;
-    path: string;
+    path?: string;
     className?: string;
     isinternal?: boolean;
+    isCTA?: boolean;
   }[];
 }
 
@@ -22,21 +23,38 @@ const Navbar: React.FunctionComponent<NavBarPropsInterface> = ({
   styleOveride,
   navigations
 }) => {
+
+  const LinkWrapper = React.memo<{path: string; label: string; isinternal: boolean;}>(({
+    path,
+    label,
+    isinternal
+  }) => (
+    isinternal ? 
+      <NavLink to={path || ''}>
+        {label || ''}
+      </NavLink>
+      :
+      <a href={path || ''} target="_blank">
+        {label || ''}
+      </a>
+  ));
+
   return (
     <Style className={["nav-bar", styleOveride || ''].join(" ")}>
       <ul className="nav-bar-list">
-        {navigations && navigations.map((navigation, index) => (
+        {!!navigations && navigations.map((navigation, index) => (
           <li className={["nav-bar-list__link", navigation?.className || ''].join(" ")} key={index}>   
-            {
-              navigation?.isinternal ? 
-                <NavLink to={navigation?.path || ''}>
-                  {navigation?.label || ''}
-                </NavLink>
+            { navigation?.isCTA ?
+              <button className='nav-bar-list__cta'>
+                {navigation?.label || ''}
+              </button>
               :
-                <a href={navigation?.path || ''} target="_blank">
-                  {navigation?.label || ''}
-                </a>
-            }       
+              <LinkWrapper 
+                path={navigation?.path || ''} 
+                label={navigation?.label || ''} 
+                isinternal={navigation.isinternal || false}
+              />     
+            }
           </li>
         ))}
       </ul>
